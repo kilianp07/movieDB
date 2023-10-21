@@ -27,4 +27,16 @@ func init() {
 		),
 	)
 	beego.AddNamespace(ns)
+
+	beego.Router("/film", &controllers.FilmController{}, "post:Post")
+	beego.Router("/film/:id", &controllers.FilmController{}, "get:GetOne")
+	beego.Router("/film", &controllers.FilmController{}, "get:GetAll")
+	beego.Router("/film/:id", &controllers.FilmController{}, "put:Put")
+	beego.Router("/film/:id", &controllers.FilmController{}, "delete:Delete")
+
+	beego.Router("/actor", &controllers.ActorController{}, "post:Post")
+	beego.Router("/actor/:id", &controllers.ActorController{}, "get:GetOne")
+	beego.Router("/actor", &controllers.ActorController{}, "get:GetAll")
+	beego.Router("/actor/:id", &controllers.ActorController{}, "put:Put")
+	beego.Router("/actor/:id", &controllers.ActorController{}, "delete:Delete")
 }
